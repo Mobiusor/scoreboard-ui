@@ -1,0 +1,9 @@
+export const AVALON_LOYAL_SERVANT = 0x0000
+export const AVALON_MERLIN = 0x0001
+export const AVALON_PERCIVAL = 0x0002
+
+export const AVALON_MINION_OF_MORDRED = 0x0100
+export const AVALON_ASSASSIN = 0x0101
+export const AVALON_MORGANA = 0x0102
+export const AVALON_MORDRED = 0x0103
+export const AVALON_OBERON = 0x0104

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Avatar, Badge } from 'antd'
-import { getUsers, getRank,  } from '../service/scoreboard.service'
+import { getUsers, getRank } from '../service/scoreboard.service'
 
 class Rank extends React.Component {
-  state = { users: new Map(), rank: [] }
+  state = { userMap: new Map(), rank: [] }
 
   componentDidMount() {
     this.loadData()
@@ -11,8 +11,10 @@ class Rank extends React.Component {
 
   async loadData() {
     const users = await getUsers()
+    const userMap = new Map();
+    users.forEach(x => userMap[x.userid] = x)
     const rank = await getRank()
-    this.setState({ users, rank })
+    this.setState({ userMap, rank })
   }
 
   renderItems() {
@@ -23,10 +25,10 @@ class Rank extends React.Component {
         <div style={{margin: '8px', padding: '8px', borderBottom: '1px dashed #ccc'}}>
           <span style={{marginRight: '32px'}}>
             <Badge count={index + 1} color={badgeColor}>
-              <Avatar src={this.state.users[x.userId].avatar} />
+              <Avatar src={this.state.userMap[x.userId].avatar} />
             </Badge>
           </span>
-          <span style={{ display: 'inline-block', width: '240px', textAlign:'left', marginRight: '32px'}} > {this.state.users[x.userId].name} </span>
+          <span style={{ display: 'inline-block', width: '240px', textAlign:'left', marginRight: '32px'}} > {this.state.userMap[x.userId].name} </span>
           <span> score: {x.totalScore} </span>
         </div>
       )

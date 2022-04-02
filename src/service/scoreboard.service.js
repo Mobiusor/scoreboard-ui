@@ -44,10 +44,7 @@ const getRank = async () => {
 
 const getUsers = async () => {
   const response = await instance.get('/user/');
-  const data =  response.data;
-  const userMap = new Map();
-  data.forEach(x => userMap[x.userid] = x)
-  return userMap;
+  return response.data;
 }
 
 const getSelfInfo = async (id) => {
@@ -65,8 +62,11 @@ const login = async (alias, password) => {
   return response.data;
 }
 
-const addMatch = async (matches) => {
-  const response = await instance.post('/match/', matches)
+const addMatch = async (time, matchInfo) => {
+  const response = await instance.post('/match/', {
+    time,
+    addMatchRequestModels: matchInfo
+  })
   return response.data;
 }
 
