@@ -14,7 +14,7 @@ const scoreColorMap = { '-1': 'red', '0': null, '1': 'blue', '2': 'geekblue'}
 const roleMap = { 
   [roles.AVALON_LOYAL_SERVANT]: 'loyal-servant',
   [roles.AVALON_MERLIN]: 'merlin',
-  [roles.AVALON_PERCIVAL]: 'percival',
+  [roles.AVALON_PERCIVALE]: 'percivale',
   [roles.AVALON_MINION_OF_MORDRED]: 'minion-of-mordred',
   [roles.AVALON_ASSASSIN]: 'assassin',
   [roles.AVALON_MORGANA]: 'morgana',

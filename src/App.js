@@ -4,8 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Rank from './views/rank';
 import Match from './views/match';
 import DataEntry from './views/dataEntry';
-import { Layout, Menu, Modal, Form, Button, Input } from 'antd';
-import { login } from './service/scoreboard.service'
+import { Layout, Menu, Modal, Form, Button, Input, Row, Col } from 'antd';
+import { login, getSelfInfo } from './service/scoreboard.service'
 const { Header, Content } = Layout;
 
 
@@ -16,9 +16,7 @@ const router = [
 ];
 
 class App extends React.Component {
-  state = { isLoginVisible: false, token: window.localStorage.getItem('token') }
-
-
+  state = { isLoginVisible: false, token: window.localStorage.getItem('token'), username: '' }
 
   render = () => {
     const router = this.renderRouter()
@@ -26,10 +24,12 @@ class App extends React.Component {
       <>
         <Layout className="layout">
           <Header>
-            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-              {this.renderMenu()}
-            </Menu>
-            <div style={{ float: 'right', color: 'white'}}>aaa</div>
+            <div style={{ display: 'flex', alignContent: 'space-between'}}>
+              <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} style={{ width: '80%'}}>
+                {this.renderMenu()}
+              </Menu>
+              <a onClick={this.logout} style={{ color: 'white'}}>{ this.state.username }</a>
+            </div>
           </Header>
           <Content style={{ padding: '56px', textAlign: 'center', minHeight: 'calc(100vh - 64px)', background: '#fefefe' }}>
             {router}
@@ -110,7 +110,19 @@ class App extends React.Component {
     const token = window.localStorage.getItem('token')
     if (token === null) {
       this.setState({isLoginVisible: true})
+    } else {
+      this.getUserInfo()
     }
+  }
+
+  logout = () => {
+    window.localStorage.clear()
+    window.location.reload()
+  }
+
+  getUserInfo = async () => {
+    const info = await getSelfInfo()
+    this.setState({ username: info.name})
   }
 }
 

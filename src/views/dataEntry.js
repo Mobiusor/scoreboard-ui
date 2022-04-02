@@ -63,6 +63,22 @@ class DataEntry extends React.Component {
     )
   }
 
+  renderItem = (item) => {
+    const user = this.state.userMap[item.userid]
+    if (user === null || user === undefined) { return null }
+    const customLabel = (
+      <Space style={{ textAlign: 'left'}}>
+        <Avatar src={user.avatar} />
+        <span>{user.name}</span>
+      </Space>
+    );
+
+    return {
+      label: customLabel, // for displayed item
+      value: item.title, // for title and filter matching
+    };
+  }
+
   renderStepContent = () => {
     if (this.state.current === 0) {
       return (
@@ -76,8 +92,8 @@ class DataEntry extends React.Component {
             selectedKeys={this.state.selectedKeys}
             onChange={this.handleChange}
             onSelectChange={this.handleSelectChange}
-            // onScroll={onScroll}
-            render={item => item.name}
+            listStyle={{ width: 240, height: 600}}
+            render={this.renderItem}
           />
         </Space>
       )
