@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Rank from './views/rank';
 import Match from './views/match';
 import DataEntry from './views/dataEntry';
+import Setting from './views/setting';
 import { Layout, Menu, Modal, Form, Button, Input, Row, Col } from 'antd';
 import { login, getSelfInfo } from './service/scoreboard.service'
 const { Header, Content } = Layout;
@@ -12,7 +13,8 @@ const { Header, Content } = Layout;
 const router = [
   { key: 'rank', name: 'Rank', path: '/rank', component: Rank },
   { key: 'match', name: 'Match', path: '/match', component: Match },
-  { key: 'dataEntry', name: 'Data Entry', path: '/dataEntry', component: DataEntry}
+  { key: 'dataEntry', name: 'Data Entry', path: '/dataEntry', component: DataEntry },
+  { key: 'setting', name: 'Setting', path: '/setting', component: Setting }
 ];
 
 class App extends React.Component {
