@@ -51,7 +51,7 @@ class Match extends React.Component {
         }
 
         return (
-          <span style={{ marginRight: '8px'}}>
+          <span style={{ marginRight: '10px'}}>
             <Badge count={badge} color={color} offset={[-16, 0]}>
               <Avatar shape='square' src={<Image src={roleAvatarSrc} style={{ width: '32px', border: '2px solid', borderColor }}/>} />
             </Badge>
@@ -59,7 +59,7 @@ class Match extends React.Component {
         )
       })
       return (
-        <div style={{margin: '8px', padding: '8px', borderBottom: '1px dashed #ccc'}}>
+        <div style={{margin: '8px', padding: '4px', borderBottom: '1px solid #ccc'}}>
           <Avatar style={{marginRight: '32px'}} src={this.state.userMap[user.userId].avatar} />
           {matches}
         </div>

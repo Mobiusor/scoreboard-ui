@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Input, Button, Space } from 'antd'
 import { getSelfInfo, updateUser } from '../service/scoreboard.service'
+import { message } from 'antd';
 
 class Setting extends React.Component {
   state = { info: {} }
@@ -13,10 +14,16 @@ class Setting extends React.Component {
     const info = await getSelfInfo()
     info.password = null
     this.setState({ info })
-  }
+  } 
 
   onFinish = async () => {
-    await updateUser(this.state.info.userid, this.state.info)
+    const info = this.state.info
+	if (info.password == null || info.password == '') {
+		message.error('please input your password')
+		return
+	}
+    await updateUser(info.userid, info)
+	message.success('success')
   }
 
   handleNameChange = (e) => {
