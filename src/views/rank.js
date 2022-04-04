@@ -40,8 +40,8 @@ class Rank extends React.Component {
             </Badge>
           </span>
           <span style={{ display: 'inline-block', width: '240px', textAlign:'left', marginRight: '32px'}} > {this.state.userMap[x.userId].name} </span>
-          <span style={{ display: 'inline-block', width: '100px', textAlign:'left', marginRight: '32px'}}> 
-		  Score: {x.totalScore} ({x.rating})
+          <span > 
+		  Score: {x.totalScore} ({x.rating}/{x.trueSkill})
 		   </span>
         </div>
       )
