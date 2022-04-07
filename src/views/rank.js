@@ -33,15 +33,18 @@ class Rank extends React.Component {
 	  var ratingColor = ratingColorList[ratingIndex]
 	  const badgeColor = badgeColorMapping[index] ?? ratingColor
       return (
-        <div style={{margin: '8px', padding: '8px', borderBottom: '1px solid #ccc', background: ratingColor, color: 'white'}}>
+        <div style={{margin: '8px', padding: '8px', borderBottom: '1px solid #ccc', background: ratingColor, color: 'white', borderRadius: '10px' }}>
           <span style={{marginRight: '32px'}}>
             <Badge count={index + 1} color={badgeColor}>
               <Avatar src={this.state.userMap[x.userId].avatar} />
             </Badge>
           </span>
           <span style={{ display: 'inline-block', width: '240px', textAlign:'left', marginRight: '32px'}} > {this.state.userMap[x.userId].name} </span>
-          <span > 
-		  Score: {x.totalScore} ({x.rating}/{x.trueSkill})
+          <span style={{ marginRight: '32px' }}> 
+		  Score: {x.totalScore}
+		   </span>
+		   <span> 
+		  Rating: {x.rating}({x.trueSkill})
 		   </span>
         </div>
       )
