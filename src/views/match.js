@@ -11,15 +11,32 @@ const dateFormat = 'YYYY-MM-DD'
 const scoreMap = { '-1': '-1', '0': null, '1': '+1', '2': 'MVP'}
 const scoreColorMap = { '-1': 'red', '0': null, '1': 'blue', '2': 'geekblue'}
 
-const roleMap = { 
-  [roles.AVALON_LOYAL_SERVANT]: 'loyal-servant',
-  [roles.AVALON_MERLIN]: 'merlin',
-  [roles.AVALON_PERCIVALE]: 'percivale',
-  [roles.AVALON_MINION_OF_MORDRED]: 'minion-of-mordred',
-  [roles.AVALON_ASSASSIN]: 'assassin',
-  [roles.AVALON_MORGANA]: 'morgana',
-  [roles.AVALON_MORDRED]: 'mordred',
-  [roles.AVALON_OBERON]: 'oberon',
+const roleAvatarMap = { 
+  [roles.AVALON_LOYAL_SERVANT]: '/avalon/role-loyal-servant.jpg',
+  [roles.AVALON_MERLIN]: '/avalon/role-merlin.jpg',
+  [roles.AVALON_PERCIVALE]: '/avalon/role-percivale.jpg',
+  [roles.AVALON_MINION_OF_MORDRED]: '/avalon/role-minion-of-mordred.jpg',
+  [roles.AVALON_ASSASSIN]: '/avalon/role-assassin.jpg',
+  [roles.AVALON_MORGANA]: '/avalon/role-morgana.jpg',
+  [roles.AVALON_MORDRED]: '/avalon/role-mordred.jpg',
+  [roles.AVALON_OBERON]: '/avalon/role-oberon.jpg',
+  
+  [roles.VILLAGER]: '/werewolf/VILLAGER.jpg',
+  [roles.POLICE_CHIEF]: '/werewolf/POLICE_CHIEF.jpg',
+  [roles.PREDICTOR]: '/werewolf/PREDICTOR.jpg',
+  [roles.WITCH]: '/werewolf/WITCH.jpg',
+  [roles.HUNTER]: '/werewolf/WITCH.jpg',
+  [roles.FOOL]: '/werewolf/FOOL.jpg',
+  [roles.GUARD]: '/werewolf/GUARD.jpg',
+  [roles.KNIGHT]: '/werewolf/KNIGHT.jpg',
+  [roles.GRAVE_GUARD]: '/werewolf/GRAVE_GUARD.jpg',
+  [roles.WEREWOLF]: '/werewolf/WEREWOLF.jpg',
+  [roles.WOLF_KING]: '/werewolf/WOLF_KING.jpg',
+  [roles.WHITE_WOLF_KING]: '/werewolf/WHITE_WOLF_KING.jpg',
+  [roles.WOLF_BEAUTY]: '/werewolf/WOLF_BEAUTY.jpg',
+  [roles.SNOW_WOLF]: '/werewolf/SNOW_WOLF.jpg',
+  [roles.GARGOYLE]: '/werewolf/GARGOYLE.jpg',
+  [roles.GHOST_RIDER]: '/werewolf/GHOST_RIDER.jpg',
 }
 
 class Match extends React.Component {
@@ -43,8 +60,8 @@ class Match extends React.Component {
       const matches = user.usermatches.map(match => {
         const badge = scoreMap[match.score]
         const color = scoreColorMap[match.score]
-        let roleAvatarSrc = `/images/avalon/role-${roleMap[match.role]}.jpg`
-        let borderColor = ((roleMap[match.role] & 0x0100) === 0 ? 'blue' : 'red')
+        let roleAvatarSrc = `/images${roleAvatarMap[match.role]}`
+        let borderColor = ((match.role & 0x7100) !== 0x0100 && (match.role & 0x7200) !== 0x1200 ? 'blue' : 'red')
         if (match.score === 0) {
           roleAvatarSrc = `/images/reject.jpg`
           borderColor = null

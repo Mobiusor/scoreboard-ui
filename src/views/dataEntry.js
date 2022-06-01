@@ -98,7 +98,7 @@ class DataEntry extends React.Component {
         </Space>
       )
     } else if (this.state.current === 1 && this.state.users.length > 0) {
-      const items = this.state.matchInfo.map((info, index) => {
+		const items = this.state.matchInfo.map((info, index) => {
         const user = this.state.userMap[info.userId]
         return (
           <div key={info.userId}>
@@ -108,19 +108,42 @@ class DataEntry extends React.Component {
               </span>
               <span style={{ display: 'inline-block', width: '120px', textAlign:'left', marginRight: '32px'}} > {user.name} </span>
               <Input.Group compact>
-                <Select placeholder='Role' value={info.role} onChange={(val) => this.handleChangeRole(index, val)} style={{ width: '180px' }}>
-                  <OptGroup label="Good">
-                    <Option value={0x0000}>Loyal Servant</Option>
-                    <Option value={0x0001}>Merlin</Option>
-                    <Option value={0x0002}>Percival</Option>
-                  </OptGroup>
-                  <OptGroup label="Evil">
-                    <Option value={0x0100}>Minion</Option>
-                    <Option value={0x0101}>Assassin</Option>
-                    <Option value={0x0102}>Morgana</Option>
-                    <Option value={0x0103}>Mordred</Option>
-                    <Option value={0x0104}>Oberon</Option>
-                  </OptGroup>
+                <Select placeholder='Avalon' value={info.role} onChange={(val) => this.handleChangeRole(index, val)} style={{ width: '180px' }}>
+					  <OptGroup label="Good">
+						<Option value={0x0000}>Loyal Servant</Option>
+						<Option value={0x0001}>Merlin</Option>
+						<Option value={0x0002}>Percival</Option>
+					  </OptGroup>
+					  <OptGroup label="Evil">
+						<Option value={0x0100}>Minion</Option>
+						<Option value={0x0101}>Assassin</Option>
+						<Option value={0x0102}>Morgana</Option>
+						<Option value={0x0103}>Mordred</Option>
+						<Option value={0x0104}>Oberon</Option>
+					  </OptGroup>
+	
+                </Select>
+				<Select placeholder='Werewolf' value={info.role} onChange={(val) => this.handleChangeRole(index, val)} style={{ width: '180px' }}>
+					  <OptGroup label="Good">
+						<Option value={0x1000}>VILLAGER</Option>
+						<Option value={0x1100}>POLICE_CHIEF</Option>
+						<Option value={0x1101}>PREDICTOR</Option>
+						<Option value={0x1102}>WITCH</Option>
+						<Option value={0x1103}>HUNTER</Option>
+						<Option value={0x1104}>FOOL</Option>
+						<Option value={0x1105}>GUARD</Option>
+						<Option value={0x1106}>KNIGHT</Option>
+						<Option value={0x1107}>GRAVE GUARD</Option>
+					  </OptGroup>
+					  <OptGroup label="Evil">
+						<Option value={0x1200}>WEREWOLF</Option>
+						<Option value={0x1201}>WOLF KING</Option>
+						<Option value={0x1202}>WHITE WOLF KING</Option>
+						<Option value={0x1203}>WOLF BEAUTY</Option>
+						<Option value={0x1204}>SNOW WOLF</Option>
+						<Option value={0x1205}>GARGOYLE</Option>
+						<Option value={0x1206}>GHOST RIDER</Option>
+					  </OptGroup>
                 </Select>
                 <Select placeholder='Status' value={info.score} onChange={(val) => this.handleChangeScore(index, val)} style={{ width: '120px' }}>
                   <Option value={1}>Win  +1</Option>
