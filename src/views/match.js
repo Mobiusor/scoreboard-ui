@@ -25,7 +25,7 @@ const roleAvatarMap = {
   [roles.POLICE_CHIEF]: '/werewolf/POLICE_CHIEF.jpg',
   [roles.PREDICTOR]: '/werewolf/PREDICTOR.jpg',
   [roles.WITCH]: '/werewolf/WITCH.jpg',
-  [roles.HUNTER]: '/werewolf/WITCH.jpg',
+  [roles.HUNTER]: '/werewolf/HUNTER.jpg',
   [roles.FOOL]: '/werewolf/FOOL.jpg',
   [roles.GUARD]: '/werewolf/GUARD.jpg',
   [roles.KNIGHT]: '/werewolf/KNIGHT.jpg',

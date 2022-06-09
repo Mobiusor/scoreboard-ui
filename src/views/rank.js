@@ -20,9 +20,9 @@ class Rank extends React.Component {
   renderItems() {
     return this.state.rank.map((x, index) => {
       const badgeColorMapping = {0: 'yellow', 1: 'silver', 2: 'brown'}
-	  const ratingLowerBound = [0, 1000, 1200, 1400, 1600, 1800, 2000, 2200, 2400, 2700, 3000, 4000]
+	  const ratingLowerBound = [0, 1000, 1200, 1400, 1600, 1800, 2000, 2200, 2400, 2700, 3000, 5000]
 	  const ratingColorList = ['gray', '#8bc34a', '#4caf50', 'cyan', 'blue', 'violet', 'orange', 'orange', 'red', 'red', 'black', '#d9e3f0']
-	  const ratingTitleList = ['Newbie', 'Pupil', 'Apprentice', 'Specialist', 'Expert', 'Candidate Master', 'Master', 'International Master', 'Grandmaster', 'International Grandmaster', 'Legendary Grandmaster', 'God']
+	  const ratingTitleList = ['Newbie', 'Pupil', 'Apprentice', 'Specialist', 'Expert', 'Candidate Master', 'Master', 'International Master', 'Grandmaster', 'International Grandmaster', 'Legendary Grandmaster', '?']
 	  
       
 	  
